@@ -1,16 +1,28 @@
 # ModernPhysicsExperiment_PKU
+
 A latex template for modern physics experiment at school of physics, Peking University
 
 请用 xelatex 编译
+
 请用 UTF-8 编码文件
+
 不需要下载 evtex4-1
 
 Edited and pushed to github by Liang Hao (mail: haoliang@pku.edu.cn), 2016.02.28
+
 Remove documentclass "revtex4.1", using "article"
+
 Change "CJK" to "xeCJK"
+
 And change a lot of things that relate to it.
+
 Test with texlive 2015 in windows 10 and Ubuntu 15.10
+
 $xelatex XX.tex
+
+
+
+
 
 
 ----------2014年Readme----------
