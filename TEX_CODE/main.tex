@@ -15,41 +15,55 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[12pt,a4paper]{article}
 \usepackage{xeCJK}
-\setCJKmainfont[BoldFont={SimHei},ItalicFont={FangSong}]{SimSun}
-\setmainfont[ItalicFont={FangSong}]{Times New Roman}
-\usepackage{setspace,dcolumn}
-\usepackage{subfig}
-\usepackage[colorlinks=true]{hyperref}
-\usepackage{graphicx,psfrag,epsfig}
-\usepackage[font=small,format=plain,labelfont=bf,textfont=it,justification=raggedright,singlelinecheck=false]{caption}
+\setmainfont{Times New Roman}
+\setmonofont{Consolas}
+\setCJKmainfont[AutoFakeBold=5,AutoFakeSlant]{SimSun}
+\setCJKmonofont[AutoFakeBold=2,AutoFakeSlant]{SimHei}
+\newCJKfontfamily\heiti[AutoFakeBold=2,AutoFakeSlant]{SimHei}
+\newCJKfontfamily\fangsong[AutoFakeBold=5,AutoFakeSlant]{FangSong}
+\newCJKfontfamily\kaiti[AutoFakeBold=5,AutoFakeSlant]{KaiTi}
+\usepackage{caption}
+\DeclareCaptionFont{kaiti}{\kaiti}
+\DeclareCaptionFont{bfheiti}{\bf\heiti}
+\captionsetup{font=small,format=plain,labelfont=bfheiti,%
+  textfont=kaiti,justification=raggedright,%
+  singlelinecheck=false}
 \usepackage{titlesec}
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\Alph{subsection}}
 \renewcommand{\thesubsubsection}{\arabic{subsubsection}}
-\titleformat*{\section}{\it\large}
-\titleformat*{\subsection}{\it\large}
-\titleformat*{\subsubsection}{\it\normalsize}
+\titleformat*{\section}{\bf\fangsong\large}
+\titleformat*{\subsection}{\bf\fangsong\large}
+\titleformat*{\subsubsection}{\fangsong\normalsize}
+\renewcommand{\labelenumi}{\alph{enumi}.}
+
 \usepackage{indentfirst}
 \setlength{\parindent}{2em}
+\usepackage{setspace}
+
+\usepackage{subfig}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{graphicx,psfrag,epsfig}
 \usepackage{amsmath,amsfonts,amssymb,amsthm,bm,upgreek}
 \usepackage[mathscr]{eucal}
+\usepackage[squaren]{siunits}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage[top=2.54cm,bottom=2.54cm,left=3cm,right=3cm]{geometry}
 
 \renewcommand\appendixname{附录}
-\renewcommand\abstractname{\vspace{0pt}}%摘要
+\renewcommand\abstractname{ \vspace{-1cm}}%摘要
 \renewcommand\tablename{表}
 \renewcommand\figurename{图}
-\renewcommand\refname{\vspace{0pt}}
-\linespread{1.5}
-\def\chntoday{\normalsize {\bf 日期: }\the\year~年~\the\month~月~\the\day~日}
+\renewcommand\refname{ \vspace{-1cm}}
+\linespread{1.6}
+\def\chntoday{{\normalsize ({日期: }\the\year~年~\the\month~月~\the\day~日})}
 
 \begin{document}
 
 \title{\bf\Large 实验题目}
-\author{{\it\large 梁昊\footnote{Email: haoliang@pku.edu.cn; Tel: (86)18811717060}} \\ {\normalsize 北京大学物理学院\quad 学号: 1300011365}}
-\date{}%\chntoday}
+\author{{\fangsong\large 梁昊\footnote{Email: haoliang@pku.edu.cn; Tel: (86)18811717060}} \\ {\normalsize 北京大学物理学院\quad 学号: 1300011365}}
+\date{\chntoday}
 
 \maketitle
 
@@ -91,7 +105,8 @@
 \subsection{实验装置}
 \subsubsection{电~源}
 \begin{enumerate}
-\item {\it 输入变压器} 这是输入变压器. %想用subsubsubsection的自己找解决方案去吧，我懒得写了-lh
+\item {\fangsong 输入变压器} 
+这是输入变压器. %想用subsubsubsection的自己找解决方案去吧，我懒得写了-lh
 \end{enumerate}
 ...
 
@@ -100,6 +115,7 @@
 依自己意愿, 实验结果和对结果的分析讨论既可分为两节也可合在一节.\par
 实验结果应尽量以图表的形式给出. 每一个图表都应该是完整的, 即阅读图表时可以不必依赖正文.\par
 表是被一系列横线隔开的有序排列的数据, 报告格式要求最上和最下两条横线为双横线. 下页是表格和图片的例子.\par
+注意数据单位格式$c = \unit{299792458}{\meter\per\second}$
 
 \begin{table}[htbp]
 \caption{这个表格讲述了如何标题, 标题呢, 一般会很长很长很长很长很长很长很长很长的. 这个～}
@@ -145,10 +161,11 @@ N(x_0,y_0,z_0)=\prod_{j\in\{x\}}g(j_0,\sigma^j_0) \label{eq:1}
 硕、博士论文致谢词产生器 \href{http://acknowledgement.sinaapp.com/}{http://acknowledgement.sinaapp.com/}\\
 此部分应感谢指导教师、实验室技术人员、同组人和对实验和报告有帮助的其他人．
 
-\setmainfont{Times New Roman}
 \bibliography{bibliography}
 %\adcontentsline{toc}{section}{参考文献}
-\noindent\rule{.8\textwidth}{1pt}
+\begin{centering}
+\rule{0.87\textwidth}{1pt}
+\end{centering}
 \begin{thebibliography}{\vspace{0pt}}
 \bibitem{Book} 吴思成, 王祖铨~2010 近代物理实验（第三版）（北京: 高等教育出版社）第xxx页.
 %
@@ -164,7 +181,7 @@ N(x_0,y_0,z_0)=\prod_{j\in\{x\}}g(j_0,\sigma^j_0) \label{eq:1}
 
 \clearpage
 \appendix
-\setmainfont[ItalicFont={FangSong}]{Times New Roman}
+
 \section{思考题}
 
 \end{spacing}
